@@ -54,7 +54,7 @@ You need **Python 3** installed on your system.
 
 ---
 
-## 🛠️echnology
+## 🛠️Technology
 
 * **Language:** Python 3
 * **Library:** `ipaddress` (Python Standard Library)
