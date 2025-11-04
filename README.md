@@ -1,10 +1,10 @@
-# Network Configuration Generator 💻
+# Network Configuration Generator 
 
 A Python-based script designed to automate the initial configuration setup for network devices (routers and switches). This tool promotes **Infrastructure as Code (IaC)** principles by generating standardized, error-free Cisco-like configuration files from simple, user-provided inputs.
 
 ---
 
-## ✨ Features
+## Features
 
 The generator streamlines network deployment by providing these core functionalities:
 
@@ -21,7 +21,7 @@ The generator streamlines network deployment by providing these core functionali
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites
 
@@ -54,7 +54,7 @@ You need **Python 3** installed on your system.
 
 ---
 
-## 🛠️ Technology
+## 🛠️Technology
 
 * **Language:** Python 3
 * **Library:** `ipaddress` (Python Standard Library)
@@ -62,7 +62,7 @@ You need **Python 3** installed on your system.
 
 ---
 
-## 🔗 References
+##  References
 
 This project is built upon core Computer Networking and Python principles.
 
