@@ -1,0 +1,52 @@
+! Router Configuration for office
+hostname office
+!
+! Basic Security Configuration
+no ip http-server
+no ip http secure-server
+service password-encryption
+banner motd # Unauthorized Access is Prohibited #
+!
+! WAN Interface - Connected to Internet
+interface GigabitEthernet0/0
+ description WAN Link to ISP
+ ip address dhcp
+ negotiation auto
+ no shutdown
+!
+! LAN Interface - Connected to Internal Network
+interface GigabitEthernet0/1
+ description LAN Link to Internal Network
+ ip address 192.168.1.1 255.255.255.0
+ duplex auto
+ speed auto
+ no shutdown
+!
+! DHCP Configuration for LAN
+ip dhcp pool LAN_POOL
+ network 192.168.1.0 255.255.255.0
+ default-router 192.168.1.1
+ dns-server 8.8.8.8 8.8.4.4
+ domain-name local
+ lease 7
+!
+ip dhcp excluded-address 192.168.1.1 192.168.1.10
+!
+! NAT Configuration for Internet Access
+ip nat inside source list NAT interface GigabitEthernet0/0 overload
+access-list 1 permit 192.168.0.0 0.0.255.255
+access-list 1 permit 10.0.0.0 0.255.255.255
+access-list 1 permit 172.16.0.0 0.15.255.255
+!
+interface GigabitEthernet0/1
+ ip nat inside
+!
+interface GigabitEthernet0/0
+ ip nat outside
+!
+! Default route to ISP
+ip route 0.0.0.0 0.0.0.0 GigabitEthernet0/0
+!
+! Save configuration
+end
+write memory
